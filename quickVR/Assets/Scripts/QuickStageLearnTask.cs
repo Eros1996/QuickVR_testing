@@ -5,17 +5,50 @@ using QuickVR;
 
 public class QuickStageLearnTask : QuickStageBase
 {
-	public Animator animator;
+
+	#region PUBLIC ATTRIBUTES
+
 	public string animationName;
+
+	#endregion
+
+	#region PROTECTED ATTRIBUTES
+
+	protected Animator animator;
+	protected QuickUnityVR _unityVR = null;
+
+	#endregion
+
+	public override void Init()
+	{
+		animator = _vrManager.GetAnimatorTarget();
+		_unityVR = animator.GetComponent<QuickUnityVR>();
+		base.Init();
+	}
 
 	protected override void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-			endStage();
+		if (InputManager.GetButtonDown("Continue")) { }
+		//endStage();
 
-		if (Input.GetKeyDown(KeyCode.A))
+		if (InputManager.GetButtonDown("StartAnimation"))
 		{
 			animator.SetBool(animationName, true);
+			_unityVR.SetIKControl(IKBone.Hips, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.LeftHand, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.RightHand, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.LeftFoot, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.RightFoot, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.LeftIndexDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.LeftLittleDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.LeftMiddleDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.LeftRingDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.LeftThumbDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.RightIndexDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.RightLittleDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.RightMiddleDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.RightRingDistal, QuickUnityVR.ControlType.Animation);
+			_unityVR.SetIKControl(IKBone.RightThumbDistal, QuickUnityVR.ControlType.Animation);
 		}
 	}
 

@@ -7,8 +7,8 @@ public class QuickStagePerformTask : QuickStageBase
 {
 	protected override void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-			endStage();
+		if (InputManager.GetButtonDown("Continue")) { }
+		//endStage();
 	}
 
 	private void endStage()

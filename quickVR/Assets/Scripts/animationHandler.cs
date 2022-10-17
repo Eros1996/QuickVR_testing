@@ -27,5 +27,21 @@ public class animationHandler : MonoBehaviour
 	public void animationEnd(string animationName)
 	{
 		animator.SetBool(animationName, false);
+		var unityVR = GetComponent<QuickUnityVR>();
+		unityVR.SetIKControl(IKBone.Hips, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.LeftHand, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.RightHand, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.LeftFoot, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.RightFoot, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.LeftIndexDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.LeftLittleDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.LeftMiddleDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.LeftRingDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.LeftThumbDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.RightIndexDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.RightLittleDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.RightMiddleDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.RightRingDistal, QuickUnityVR.ControlType.Tracking);
+		unityVR.SetIKControl(IKBone.RightThumbDistal, QuickUnityVR.ControlType.Tracking);
 	}
 }

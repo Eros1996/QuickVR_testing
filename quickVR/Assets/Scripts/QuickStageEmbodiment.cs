@@ -8,8 +8,8 @@ public class QuickStageEmbodiment : QuickStageBase
 	
 	protected override void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-			endStage();
+		if (InputManager.GetButtonDown("Continue")) { }
+			//endStage();
 
 	}
 
