@@ -26,6 +26,8 @@ public class animationHandler : MonoBehaviour
 
 	public void animationEnd(string animationName)
 	{
+		QuickStageLearnTask.animationStart = false;
+
 		animator.SetBool(animationName, false);
 		var unityVR = GetComponent<QuickUnityVR>();
 		unityVR.SetIKControl(IKBone.Hips, QuickUnityVR.ControlType.Tracking);
@@ -43,5 +45,7 @@ public class animationHandler : MonoBehaviour
 		unityVR.SetIKControl(IKBone.RightMiddleDistal, QuickUnityVR.ControlType.Tracking);
 		unityVR.SetIKControl(IKBone.RightRingDistal, QuickUnityVR.ControlType.Tracking);
 		unityVR.SetIKControl(IKBone.RightThumbDistal, QuickUnityVR.ControlType.Tracking);
+
+		QuickStageLearnTask.animationEnd = true;
 	}
 }

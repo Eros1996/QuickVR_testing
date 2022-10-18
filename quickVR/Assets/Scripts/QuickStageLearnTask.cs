@@ -9,6 +9,8 @@ public class QuickStageLearnTask : QuickStageBase
 	#region PUBLIC ATTRIBUTES
 
 	public string animationName;
+	public static bool animationEnd = false;
+	public static bool animationStart = false;
 
 	#endregion
 
@@ -23,13 +25,15 @@ public class QuickStageLearnTask : QuickStageBase
 	{
 		animator = _vrManager.GetAnimatorTarget();
 		_unityVR = animator.GetComponent<QuickUnityVR>();
+		animationEnd = false;
+		animationStart = false;
 		base.Init();
 	}
 
 	protected override void Update()
 	{
-		if (InputManager.GetButtonDown("Continue")) { }
-		//endStage();
+		if (InputManager.GetButtonDown("Continue") && animationEnd)
+			endStage();
 
 		if (InputManager.GetButtonDown("StartAnimation"))
 		{
@@ -49,12 +53,22 @@ public class QuickStageLearnTask : QuickStageBase
 			_unityVR.SetIKControl(IKBone.RightMiddleDistal, QuickUnityVR.ControlType.Animation);
 			_unityVR.SetIKControl(IKBone.RightRingDistal, QuickUnityVR.ControlType.Animation);
 			_unityVR.SetIKControl(IKBone.RightThumbDistal, QuickUnityVR.ControlType.Animation);
+			animationStart = true;
+		}
+
+		if (animationStart) // eye tracking analysis
+		{
+			lookingAt();
 		}
 	}
 
 	private void endStage()
 	{
-		Debug.Log("LEARN TASK END");
 		this.Finish();
+	}
+
+	private void lookingAt()
+	{
+
 	}
 }
