@@ -8,7 +8,10 @@ public class QuickStageEmbodiment : QuickStageBase
 	
 	protected override void Update()
 	{
-		
+		if (InputManager.GetButtonDown("Continue"))
+		{
+			this.Finish();
+		}
 
 	}
 }
