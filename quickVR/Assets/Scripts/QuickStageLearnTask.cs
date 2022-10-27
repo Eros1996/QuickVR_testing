@@ -60,7 +60,7 @@ public class QuickStageLearnTask : QuickStageBase
 
 		if (InputManager.GetButtonDown("StartAnimation"))
 		{
-			//SettingIKControl2Animation();
+			SettingIKControl2Animation();
 			animator.SetBool(animationName+animationIndex[quickStageLoop.GetCurrentInteration()], true);
 			animationStart = true;
 
@@ -89,7 +89,6 @@ public class QuickStageLearnTask : QuickStageBase
 			}
 			count++;
 		}
-
 	}
 
 	private void SettingIKControl2Animation()

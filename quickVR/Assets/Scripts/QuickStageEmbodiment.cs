@@ -5,13 +5,14 @@ using QuickVR;
 
 public class QuickStageEmbodiment : QuickStageBase
 {
-	
+	public Animator animator;
+
 	protected override void Update()
 	{
 		if (InputManager.GetButtonDown("Continue"))
 		{
+			//animator.SetBool("StartAnimation", true);
 			this.Finish();
 		}
-
 	}
 }
