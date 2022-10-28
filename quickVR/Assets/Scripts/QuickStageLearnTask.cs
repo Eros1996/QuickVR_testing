@@ -31,7 +31,8 @@ public class QuickStageLearnTask : QuickStageBase
 	string _animationFile;
 	StreamWriter fout;
 	int count = 0;
-	string[] animationIndex = { "01", "02", "03", "04", "05", "06", "07", "08", "09", "11", "12", "13" };
+	//string[] animationIndex = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "11", "12", "13"};
+	string[] animationIndex = {"01", "06", "12"};
 
 	#endregion
 

@@ -1254,7 +1254,7 @@ ModelImporter:
   externalObjects: {}
   materials:
     materialImportMode: 1
-    materialName: 1
+    materialName: 2
     materialSearch: 1
     materialLocation: 0
   animations:
@@ -1263,7 +1263,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 

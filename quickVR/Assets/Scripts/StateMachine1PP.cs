@@ -48,7 +48,6 @@ public class StateMachine1PP : StateMachineBehaviour
 		animator.SetBool(name, false);
 
 		var unityVR = animator.GetComponent<QuickUnityVR>();
-		unityVR.SetIKControl(IKBone.Head, QuickUnityVR.ControlType.Tracking);
 		unityVR.SetIKControl(IKBone.Hips, QuickUnityVR.ControlType.Tracking);
 		unityVR.SetIKControl(IKBone.LeftHand, QuickUnityVR.ControlType.Tracking);
 		unityVR.SetIKControl(IKBone.RightHand, QuickUnityVR.ControlType.Tracking);
@@ -70,7 +69,6 @@ public class StateMachine1PP : StateMachineBehaviour
 	override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		// Implement code that processes and affects root motion
-		var hips_transform = animator.GetBoneTransform(HumanBodyBones.Hips);
 	}
 
 	// OnStateIK is called right after Animator.OnAnimatorIK()

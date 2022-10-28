@@ -1254,7 +1254,22 @@ ModelImporter:
   - first:
       137: 13700000
     second: m017_hipoly
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m017_body
+    second: {fileID: 2100000, guid: de8075037b38d354da9b66a6e6b07c60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m017_head
+    second: {fileID: 2100000, guid: 7b753a665fabbeb41861955310518351, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m017_opacity
+    second: {fileID: 2100000, guid: a69074848f6afd046921d2ecf79bb6c7, type: 2}
   materials:
     materialImportMode: 1
     materialName: 2
@@ -1266,7 +1281,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -1298,7 +1313,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 1

@@ -11,7 +11,6 @@ public class QuickStageEmbodiment : QuickStageBase
 	{
 		if (InputManager.GetButtonDown("Continue"))
 		{
-			//animator.SetBool("StartAnimation", true);
 			this.Finish();
 		}
 	}
