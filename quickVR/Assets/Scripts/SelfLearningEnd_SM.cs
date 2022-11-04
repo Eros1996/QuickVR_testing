@@ -22,6 +22,7 @@ public class SelfLearningEnd_SM : StateMachineBehaviour
 	{
 		QuickStageLearnTask.animationStart = false;
 		QuickStageLearnTask.animationEnd = true;
+		QuickStagePerformTask.startPerformance = false;
 
 		var unityVR = animator.GetComponent<QuickUnityVR>();
 		unityVR.SetIKControl(IKBone.Hips, QuickUnityVR.ControlType.Tracking);

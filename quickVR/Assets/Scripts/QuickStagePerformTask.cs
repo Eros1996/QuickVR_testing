@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using QuickVR;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class QuickStagePerformTask : QuickStageBase
 {
 	#region PUBLIC ATTRIBUTES
 
 	public QuickStageLoop quickStageLoop;
+	public Animator referenceAnimator;
+	public static bool startPerformance = false;
 
 	#endregion
 
@@ -21,13 +24,11 @@ public class QuickStagePerformTask : QuickStageBase
 
 	#region PRIVATE ATTRIBUTES
 
-	List<Vector3> avatarsArray = new List<Vector3>();
-	List<string> header = new List<string>();
 	bool headerWritten = false;
-	string _animationFile;
-	StreamWriter fout;
-	int count = 0;
-	bool startPerformance = false;
+	string _performanceFile, _refAnimationFile;
+	StreamWriter fout, fout1;
+	string[] animationIndex = { "01", "06", "12" };
+	string animationName = "tai_chi_";
 
 	#endregion
 
@@ -36,7 +37,8 @@ public class QuickStagePerformTask : QuickStageBase
 		animator = _vrManager.GetAnimatorTarget();
 		_unityVR = animator.GetComponent<QuickUnityVR>();
 
-		_animationFile = Application.dataPath + @"/../../../OutputData/movement" + quickStageLoop.GetCurrentInteration() + ".csv";
+		_performanceFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject0/performance" + quickStageLoop.GetCurrentInteration() + ".csv";
+		_refAnimationFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject0/refAnimation" + quickStageLoop.GetCurrentInteration() + ".csv";
 
 		startPerformance = false;
 		headerWritten = false;
@@ -49,55 +51,64 @@ public class QuickStagePerformTask : QuickStageBase
 		{
 			startPerformance = false;
 			fout.Close();
+			fout1.Close();
+
 			this.Finish();
 		}
 
 		if (InputManager.GetButtonDown("StartAnimation"))
 		{
 			startPerformance = true;
-			fout = new StreamWriter(_animationFile);
+			referenceAnimator.SetBool(animationName + animationIndex[quickStageLoop.GetCurrentInteration()], true);
+
+			fout = new StreamWriter(_performanceFile);
+			fout1 = new StreamWriter(_refAnimationFile);
 		}
 
 		if (startPerformance)
 		{
-			avatarsArray.Clear();
-			AvatarStructure(_unityVR.transform.GetChild(0));
 			if (!headerWritten)
 			{
-				foreach (var item in header)
-				{
-					fout.Write(item);
-				}
+				getBonesHeader(animator.transform.GetChild(0), fout);
+				getBonesHeader(referenceAnimator.transform.GetChild(0), fout1);
 
 				headerWritten = true;
-				header.Clear();
 			}
-			fout.WriteLine();
 
-			foreach (var item in avatarsArray)
-			{
-				fout.Write(item.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
-			}
-			count++;
+			fout.WriteLine();
+			fout1.WriteLine();
+
+			getBonesPosition(animator.transform.GetChild(0), fout);
+			getBonesPosition(referenceAnimator.transform.GetChild(0), fout1);
 		}
 	}
 
-	private void AvatarStructure(Transform p)
+	private void getBonesHeader(Transform p, StreamWriter f)
 	{
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
-			if (child.name.Contains("B-"))
+			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
 			{
-				if (!headerWritten)
-				{
-					header.Add(child.name + "X, ");
-					header.Add(child.name + "Y, ");
-					header.Add(child.name + "Z, ");
-				}
+				f.Write(child.name + "-X, ");
+				f.Write(child.name + "-Y, ");
+				f.Write(child.name + "-Z, ");
 
-				avatarsArray.Add(child.position);
-				AvatarStructure(child);
+				getBonesHeader(child, f);
+			}
+		}
+	}
+
+	private void getBonesPosition(Transform p, StreamWriter f)
+	{
+		for (int i = 0; i < p.childCount; i++)
+		{
+			var child = p.GetChild(i);
+			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
+			{
+				f.Write(child.localPosition.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+
+				getBonesPosition(child, f);
 			}
 		}
 	}
