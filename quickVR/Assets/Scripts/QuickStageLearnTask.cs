@@ -5,6 +5,10 @@ using QuickVR;
 using System.IO;
 using UnityEngine.SceneManagement;
 
+// You are now at the LEARN stage
+// Press the Left Trigger to start the Tai Chi animation that you have to learn
+// Press the Right Trigger to go to the next stage
+
 public class QuickStageLearnTask : QuickStageBase
 {
 
@@ -29,7 +33,7 @@ public class QuickStageLearnTask : QuickStageBase
 	string _animationFile;
 	StreamWriter fout;
 	//string[] animationIndex = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "11", "12", "13"};
-	string[] animationIndex = {"01", "06", "12"};
+	string[] animationIndex = {"01", "01", "01"};
 	string animationName = "tai_chi_";
 
 	#endregion
@@ -55,7 +59,7 @@ public class QuickStageLearnTask : QuickStageBase
 	{
 		if (InputManager.GetButtonDown("Continue") && animationEnd)
 		{
-			fout.Close();
+			//fout.Close();
 			this.Finish();
 		}
 
@@ -64,20 +68,20 @@ public class QuickStageLearnTask : QuickStageBase
 			animator.SetBool(animationName+animationIndex[quickStageLoop.GetCurrentInteration()], true);
 			animationStart = true;
 
-			fout = new StreamWriter(_animationFile);
+			//fout = new StreamWriter(_animationFile);
 		}
 
-		if (animationStart)
-		{
-			if (!headerWritten)
-			{
-				getBonesHeader(animator.transform.GetChild(0));
-				headerWritten = true;
-			}
+		//if (animationStart)
+		//{
+		//	if (!headerWritten)
+		//	{
+		//		getBonesHeader(animator.transform.GetChild(0));
+		//		headerWritten = true;
+		//	}
 
-			fout.WriteLine();
-			getBonesPosition(animator.transform.GetChild(0));
-		}
+		//	fout.WriteLine();
+		//	getBonesPosition(animator.transform.GetChild(0));
+		//}
 	}
 
 	private void getBonesHeader(Transform p)
@@ -87,9 +91,13 @@ public class QuickStageLearnTask : QuickStageBase
 			var child = p.GetChild(i);
 			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
 			{
-				fout.Write(child.name + "-X, ");
-				fout.Write(child.name + "-Y, ");
-				fout.Write(child.name + "-Z, ");
+				fout.Write(child.name + "-posX, ");
+				fout.Write(child.name + "-posY, ");
+				fout.Write(child.name + "-posZ, ");
+
+				fout.Write(child.name + "-rotX, ");
+				fout.Write(child.name + "-rotY, ");
+				fout.Write(child.name + "-rotZ, ");
 
 				getBonesHeader(child);
 			}
@@ -104,6 +112,7 @@ public class QuickStageLearnTask : QuickStageBase
 			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
 			{
 				fout.Write(child.localPosition.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+				fout.Write(child.localRotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
 
 				getBonesPosition(child);
 			}

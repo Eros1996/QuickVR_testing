@@ -5,6 +5,10 @@ using QuickVR;
 using System.IO;
 using UnityEngine.SceneManagement;
 
+// You are now at the PERFORM stage
+// Press the Left Trigger to when you decide to perform the Tai Chi animation
+// Press the Right Trigger to go to the next stage
+
 public class QuickStagePerformTask : QuickStageBase
 {
 	#region PUBLIC ATTRIBUTES
@@ -12,7 +16,7 @@ public class QuickStagePerformTask : QuickStageBase
 	public QuickStageLoop quickStageLoop;
 	public Animator referenceAnimator;
 	public static bool startPerformance = false;
-
+	
 	#endregion
 
 	#region PROTECTED ATTRIBUTES
@@ -27,7 +31,7 @@ public class QuickStagePerformTask : QuickStageBase
 	bool headerWritten = false;
 	string _performanceFile, _refAnimationFile;
 	StreamWriter fout, fout1;
-	string[] animationIndex = { "01", "06", "12" };
+	string[] animationIndex = { "01", "01", "01" };
 	string animationName = "tai_chi_";
 
 	#endregion
@@ -90,9 +94,13 @@ public class QuickStagePerformTask : QuickStageBase
 			var child = p.GetChild(i);
 			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
 			{
-				f.Write(child.name + "-X, ");
-				f.Write(child.name + "-Y, ");
-				f.Write(child.name + "-Z, ");
+				f.Write(child.name + "-posX, ");
+				f.Write(child.name + "-posY, ");
+				f.Write(child.name + "-posZ, ");
+
+				f.Write(child.name + "-rotX, ");
+				f.Write(child.name + "-rotY, ");
+				f.Write(child.name + "-rotZ, ");
 
 				getBonesHeader(child, f);
 			}
@@ -106,7 +114,8 @@ public class QuickStagePerformTask : QuickStageBase
 			var child = p.GetChild(i);
 			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
 			{
-				f.Write(child.localPosition.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+				f.Write(child.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+				f.Write(child.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
 
 				getBonesPosition(child, f);
 			}
