@@ -29,9 +29,9 @@ public class QuickStageLearnTask : QuickStageBase
 
 	#region PRIVATE ATTRIBUTES
 
-	bool headerWritten = false;
-	string _animationFile;
-	StreamWriter fout;
+	//bool headerWritten = false;
+	//string _animationFile;
+	//StreamWriter fout;
 	//string[] animationIndex = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "11", "12", "13"};
 	string[] animationIndex = {"01", "01", "01"};
 	string animationName = "tai_chi_";
@@ -46,9 +46,9 @@ public class QuickStageLearnTask : QuickStageBase
 			_unityVR = animator.GetComponent<QuickUnityVR>();
 		}
 
-		_animationFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject0/animation" + quickStageLoop.GetCurrentInteration() + ".csv";
+		//_animationFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject0/animation" + quickStageLoop.GetCurrentInteration() + ".csv";
 
-		headerWritten = false;
+		//headerWritten = false;
 		animationEnd = false;
 		animationStart = false;
 
@@ -84,38 +84,38 @@ public class QuickStageLearnTask : QuickStageBase
 		//}
 	}
 
-	private void getBonesHeader(Transform p)
-	{
-		for (int i = 0; i < p.childCount; i++)
-		{
-			var child = p.GetChild(i);
-			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
-			{
-				fout.Write(child.name + "-posX, ");
-				fout.Write(child.name + "-posY, ");
-				fout.Write(child.name + "-posZ, ");
+	//private void getBonesHeader(Transform p)
+	//{
+	//	for (int i = 0; i < p.childCount; i++)
+	//	{
+	//		var child = p.GetChild(i);
+	//		if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
+	//		{
+	//			fout.Write(child.name + "-posX, ");
+	//			fout.Write(child.name + "-posY, ");
+	//			fout.Write(child.name + "-posZ, ");
 
-				fout.Write(child.name + "-rotX, ");
-				fout.Write(child.name + "-rotY, ");
-				fout.Write(child.name + "-rotZ, ");
+	//			fout.Write(child.name + "-rotX, ");
+	//			fout.Write(child.name + "-rotY, ");
+	//			fout.Write(child.name + "-rotZ, ");
 
-				getBonesHeader(child);
-			}
-		}
-	}
+	//			getBonesHeader(child);
+	//		}
+	//	}
+	//}
 
-	private void getBonesPosition(Transform p)
-	{
-		for (int i = 0; i < p.childCount; i++)
-		{
-			var child = p.GetChild(i);
-			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
-			{
-				fout.Write(child.localPosition.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
-				fout.Write(child.localRotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+	//private void getBonesPosition(Transform p)
+	//{
+	//	for (int i = 0; i < p.childCount; i++)
+	//	{
+	//		var child = p.GetChild(i);
+	//		if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
+	//		{
+	//			fout.Write(child.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+	//			fout.Write(child.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
 
-				getBonesPosition(child);
-			}
-		}
-	}
+	//			getBonesPosition(child);
+	//		}
+	//	}
+	//}
 }
