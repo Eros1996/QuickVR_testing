@@ -73,7 +73,7 @@ public class QuickStagePerformTask : QuickStageBase
 		{
 			if (!headerWritten)
 			{
-				getBonesHeader(animator.transform.GetChild(0), fout);
+				getBonesHeader(animator.transform, fout);
 				getBonesHeader(referenceAnimator.transform.GetChild(0), fout1);
 
 				headerWritten = true;
@@ -82,7 +82,7 @@ public class QuickStagePerformTask : QuickStageBase
 			fout.WriteLine();
 			fout1.WriteLine();
 
-			getBonesPosition(animator.transform.GetChild(0), fout);
+			getBonesPosition(animator.transform, fout);
 			getBonesPosition(referenceAnimator.transform.GetChild(0), fout1);
 		}
 	}
@@ -92,7 +92,7 @@ public class QuickStagePerformTask : QuickStageBase
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
-			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
+			if (!child.name.Contains("__IK"))
 			{
 				f.Write(child.name + "-posX, ");
 				f.Write(child.name + "-posY, ");
@@ -112,7 +112,7 @@ public class QuickStagePerformTask : QuickStageBase
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
-			if (child.name.Contains("B-") || (child.name.Contains("Bip") && !child.name.Contains("Footsteps")))
+			if (!child.name.Contains("__IK"))
 			{
 				f.Write(child.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
 				f.Write(child.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
