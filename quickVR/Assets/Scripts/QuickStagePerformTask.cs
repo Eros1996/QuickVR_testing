@@ -73,8 +73,8 @@ public class QuickStagePerformTask : QuickStageBase
 		{
 			if (!headerWritten)
 			{
-				getBonesHeader(animator.transform, fout);
-				getBonesHeader(referenceAnimator.transform.GetChild(0), fout1);
+				getBoneHeader(animator.transform, fout);
+				getBoneHeader(referenceAnimator.transform, fout1);
 
 				headerWritten = true;
 			}
@@ -82,9 +82,44 @@ public class QuickStagePerformTask : QuickStageBase
 			fout.WriteLine();
 			fout1.WriteLine();
 
-			getBonesPosition(animator.transform, fout);
-			getBonesPosition(referenceAnimator.transform.GetChild(0), fout1);
+			getBonePosition(animator.transform, fout);
+			getBonePosition(referenceAnimator.transform, fout1);
 		}
+	}
+
+	private void getBoneHeader(Transform p, StreamWriter f)
+	{
+		if (p.name.Contains("__IK")) return;
+		
+		f.Write(p.name + "-posX, ");
+		f.Write(p.name + "-posY, ");
+		f.Write(p.name + "-posZ, ");
+
+		f.Write(p.name + "-rotX, ");
+		f.Write(p.name + "-rotY, ");
+		f.Write(p.name + "-rotZ, ");
+
+		for (int i = 0; i < p.childCount; i++)
+		{
+			var child = p.GetChild(i);
+			getBonesHeader(child, f);
+		}
+		
+	}
+
+	private void getBonePosition(Transform p, StreamWriter f)
+	{
+		if (p.name.Contains("__IK")) return;
+		
+		f.Write(p.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+		f.Write(p.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+
+		for (int i = 0; i < p.childCount; i++)
+		{
+			var child = p.GetChild(i);
+			getBonesPosition(child, f);
+		}
+		
 	}
 
 	private void getBonesHeader(Transform p, StreamWriter f)
