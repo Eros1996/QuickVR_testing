@@ -19,7 +19,6 @@ public class InstructorEnd_SM : StateMachineBehaviour
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
-		QuickStageLearnTask.animationStart = false;
 		QuickStageLearnTask.animationEnd = true;
 		QuickStagePerformTask.startPerformance = false;
 	}

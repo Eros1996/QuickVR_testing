@@ -28,7 +28,6 @@ public class SelfLearningInit_SM : StateMachineBehaviour
 		unityVR.SetIKControl(IKBone.RightRingDistal, QuickUnityVR.ControlType.Animation);
 		unityVR.SetIKControl(IKBone.RightThumbDistal, QuickUnityVR.ControlType.Animation);
 
-		QuickStageLearnTask.animationStart = true;
 		name = animator.GetNextAnimatorClipInfo(layerIndex)[0].clip.name;
 	}
 

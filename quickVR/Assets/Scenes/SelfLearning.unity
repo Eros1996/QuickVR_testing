@@ -9482,7 +9482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: near clip plane
-      value: 0.1
+      value: 0.10898184
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: orthographic size
@@ -11554,7 +11554,6 @@ MonoBehaviour:
   _instructionsAudioSource: {fileID: 0}
   _instructionsVolume: 1
   _instructionsTimePause: 0.5
-  animator: {fileID: 0}
 --- !u!1 &1671803352
 GameObject:
   m_ObjectHideFlags: 0
