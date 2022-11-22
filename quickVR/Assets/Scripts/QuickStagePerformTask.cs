@@ -103,7 +103,7 @@ public class QuickStagePerformTask : QuickStageBase
 		{
 			var child = p.GetChild(i);
 			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh"))
-				getBonesHeader(child, f);
+				getBoneHeader(child, f);
 		}
 		
 	}
@@ -119,43 +119,7 @@ public class QuickStagePerformTask : QuickStageBase
 		{
 			var child = p.GetChild(i);
 			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh"))
-				getBonesPosition(child, f);
-		}
-		
-	}
-
-	private void getBonesHeader(Transform p, StreamWriter f)
-	{
-		for (int i = 0; i < p.childCount; i++)
-		{
-			var child = p.GetChild(i);
-			if (!child.name.Contains("__IK"))
-			{
-				f.Write(child.name + "-posX, ");
-				f.Write(child.name + "-posY, ");
-				f.Write(child.name + "-posZ, ");
-
-				f.Write(child.name + "-rotX, ");
-				f.Write(child.name + "-rotY, ");
-				f.Write(child.name + "-rotZ, ");
-
-				getBonesHeader(child, f);
-			}
-		}
-	}
-
-	private void getBonesPosition(Transform p, StreamWriter f)
-	{
-		for (int i = 0; i < p.childCount; i++)
-		{
-			var child = p.GetChild(i);
-			if (!child.name.Contains("__IK"))
-			{
-				f.Write(child.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
-				f.Write(child.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
-
-				getBonesPosition(child, f);
-			}
+				getBonePosition(child, f);
 		}
 	}
 }
