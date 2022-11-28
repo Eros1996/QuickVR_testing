@@ -41,6 +41,8 @@ public class SelfLearningEnd_SM : StateMachineBehaviour
 		unityVR.SetIKControl(IKBone.RightMiddleDistal, QuickUnityVR.ControlType.Tracking);
 		unityVR.SetIKControl(IKBone.RightRingDistal, QuickUnityVR.ControlType.Tracking);
 		unityVR.SetIKControl(IKBone.RightThumbDistal, QuickUnityVR.ControlType.Tracking);
+
+		animator.SetInteger("TaichiCounter", 0);
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove()
