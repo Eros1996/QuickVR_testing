@@ -11,7 +11,6 @@ public class SelfLearningInit_SM : StateMachineBehaviour
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		var unityVR = animator.GetComponent<QuickUnityVR>();
-		unityVR.SetIKControl(IKBone.Head, QuickUnityVR.ControlType.Animation);
 		unityVR.SetIKControl(IKBone.Hips, QuickUnityVR.ControlType.Animation);
 		unityVR.SetIKControl(IKBone.LeftHand, QuickUnityVR.ControlType.Animation);
 		unityVR.SetIKControl(IKBone.RightHand, QuickUnityVR.ControlType.Animation);
@@ -40,7 +39,6 @@ public class SelfLearningInit_SM : StateMachineBehaviour
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
-		//Debug.Log(animator.GetCurrentAnimatorClipInfo(layerIndex)[0].clip.name);
 		animator.SetBool(name, false);
 	}
 
