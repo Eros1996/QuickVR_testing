@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1680
     height: 967
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 75
+  controlID: 182
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 157
+  controlID: 94
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 158
+  controlID: 95
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -529,9 +529,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -12.8082, y: -3.2911377, z: 5.834502}
+    m_Target: {x: -12.2841835, y: -1.9473039, z: 11.401985}
     speed: 2
-    m_Value: {x: -12.8082, y: -3.2911377, z: 5.834502}
+    m_Value: {x: -12.2841835, y: -1.9473039, z: 11.401985}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -578,9 +578,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.1469896, y: -0.56731325, z: 0.10375754, w: 0.8036555}
+    m_Target: {x: 0.09297084, y: -0.4229688, z: 0.04368231, w: 0.9003465}
     speed: 2
-    m_Value: {x: -0.1469896, y: 0.56731325, z: -0.10375754, w: -0.8036555}
+    m_Value: {x: -0.09297084, y: 0.42296883, z: -0.04368231, w: -0.9003465}
   m_Size:
     m_Target: 9.407783
     speed: 2
@@ -640,9 +640,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 52720000
-      m_LastClickedID: 29266
-      m_ExpandedIDs: a2f8ffff2cfbffff8e700000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -948,22 +948,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/AvatarsModels/Models/GenericAvatars
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 53
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/AvatarsModels/Models/GenericAvatars
   m_LastFoldersGridSize: 53
   m_LastProjectPath: D:\Eros\QuickVR_testing\quickVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 22}
-    m_SelectedIDs: a26c0000
-    m_LastClickedID: 27810
-    m_ExpandedIDs: 00000000866c0000886c00008a6c00008c6c0000926c000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 06750000
+    m_LastClickedID: 29958
+    m_ExpandedIDs: 0000000016730000187300000675000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -991,7 +991,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000866c0000886c00008a6c00008c6c0000
+    m_ExpandedIDs: 000000001673000018730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
