@@ -1,15 +1,20 @@
 {
   "dependencies": {
-    "com.quickvr.quickbase": {
-      "version": "https://github.com/eventlab-projects/com.quickvr.quickbase.git",
+    "com.eventlab.dependencies.steamvr": {
+      "version": "file:com.eventlab.dependencies.steamvr",
       "depth": 0,
-      "source": "git",
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.quickvr.quickbase": {
+      "version": "file:com.quickvr.quickbase",
+      "depth": 0,
+      "source": "embedded",
       "dependencies": {
         "com.unity.inputsystem": "1.0.2",
         "com.unity.xr.interaction.toolkit": "2.1.0-pre.1",
         "com.unity.addressables": "1.18.19"
-      },
-      "hash": "dba453a9d6d6e62663ca0cbebb840b5fcce8a1b8"
+      }
     },
     "com.unity.addressables": {
       "version": "1.19.19",
@@ -271,6 +276,16 @@
         "com.unity.inputsystem": "1.3.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.valvesoftware.unity.openvr": {
+      "version": "file:com.eventlab.dependencies.steamvr/SteamVR/OpenVRUnityXRPackage/Editor/com.valvesoftware.unity.openvr-1.1.4.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.unity.xr.management": "3.2.13",
+        "com.unity.ugui": "1.0.0",
+        "com.unity.xr.legacyinputhelpers": "2.1.4"
+      }
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

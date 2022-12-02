@@ -1,0 +1,6 @@
+[submodule "quickVR/Packages/com.eventlab.dependencies.steamvr"]
+	path = quickVR/Packages/com.eventlab.dependencies.steamvr
+	url = https://github.com/eventlab-projects/com.eventlab.dependencies.steamvr.git
+[submodule "quickVR/Packages/com.quickvr.quickbase"]
+	path = quickVR/Packages/com.quickvr.quickbase
+	url = https://github.com/eventlab-projects/com.quickvr.quickbase.git
