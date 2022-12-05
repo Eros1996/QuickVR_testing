@@ -34,6 +34,8 @@ public class QuickStageLearnTask : QuickStageBase
 
 	public override void Init()
 	{
+		base.Init();
+
 		if (animator == null)
 		{
 			animator = _vrManager.GetAnimatorTarget();
@@ -41,13 +43,26 @@ public class QuickStageLearnTask : QuickStageBase
 		}
 
 		animationEnd = false;
-
-		base.Init();
 	}
+
+	//protected override IEnumerator CoUpdate()
+	//{
+	//	while (!InputManager.GetButtonDown(InputManager.DEFAULT_BUTTON_CONTINUE))
+	//	{
+	//		if (InputManager.GetButtonDown("StartAnimation"))
+	//		{
+	//			animator.SetBool(animationName + animationIndex[quickStageLoop.GetCurrentInteration()], true);
+	//		}
+
+	//		yield return null;
+	//	}
+	//}
 
 	protected override void Update()
 	{
-		if (InputManager.GetButtonDown("Continue") && animationEnd)
+		base.Update();
+
+		if (InputManager.GetButtonDown(InputManager.DEFAULT_BUTTON_CONTINUE) && animationEnd)
 		{
 			this.Finish();
 		}

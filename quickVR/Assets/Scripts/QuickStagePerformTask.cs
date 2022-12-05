@@ -38,6 +38,8 @@ public class QuickStagePerformTask : QuickStageBase
 
 	public override void Init()
 	{
+		base.Init();
+
 		animator = _vrManager.GetAnimatorTarget();
 		_unityVR = animator.GetComponent<QuickUnityVR>();
 
@@ -46,12 +48,13 @@ public class QuickStagePerformTask : QuickStageBase
 
 		startPerformance = false;
 		headerWritten = false;
-		base.Init();
 	}
 
 	protected override void Update()
 	{
-		if (InputManager.GetButtonDown("Continue"))
+		base.Update();
+
+		if (InputManager.GetButtonDown(InputManager.DEFAULT_BUTTON_CONTINUE))
 		{
 			startPerformance = false;
 			fout.Close();
@@ -89,7 +92,7 @@ public class QuickStagePerformTask : QuickStageBase
 
 	private void getBoneHeader(Transform p, StreamWriter f)
 	{
-		if (p.name.Contains("__") || p.name.Contains("_IK") || p.name.Contains("Mesh")) return;
+		if (p.name.Contains("__") || p.name.Contains("_IK") || p.name.Contains("Mesh") || p.name.Contains("Body") || p.name.Contains("Hair")) return;
 		
 		f.Write(p.name + "-posX, ");
 		f.Write(p.name + "-posY, ");
@@ -102,7 +105,7 @@ public class QuickStagePerformTask : QuickStageBase
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
-			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh"))
+			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh") || p.name.Contains("Body") || p.name.Contains("Hair"))
 				getBoneHeader(child, f);
 		}
 		
@@ -110,7 +113,7 @@ public class QuickStagePerformTask : QuickStageBase
 
 	private void getBonePosition(Transform p, StreamWriter f)
 	{
-		if (p.name.Contains("__") || p.name.Contains("_IK") || p.name.Contains("Mesh")) return;
+		if (p.name.Contains("__") || p.name.Contains("_IK") || p.name.Contains("Mesh") || p.name.Contains("Body") || p.name.Contains("Hair")) return;
 
 		f.Write(p.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
 		f.Write(p.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
@@ -118,7 +121,7 @@ public class QuickStagePerformTask : QuickStageBase
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
-			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh"))
+			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh") || p.name.Contains("Body") || p.name.Contains("Hair"))
 				getBonePosition(child, f);
 		}
 	}

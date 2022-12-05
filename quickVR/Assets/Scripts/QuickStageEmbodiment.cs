@@ -9,9 +9,20 @@ using QuickVR;
 
 public class QuickStageEmbodiment : QuickStageBase
 {
+
+	//protected override IEnumerator CoUpdate()
+	//{
+	//	while (!InputManager.GetButtonDown(InputManager.DEFAULT_BUTTON_CONTINUE))
+	//	{
+	//		yield return null;
+	//	}
+	//}
+
 	protected override void Update()
 	{
-		if (InputManager.GetButtonDown("Continue"))
+		base.Update();
+
+		if (InputManager.GetButtonDown(InputManager.DEFAULT_BUTTON_CONTINUE))
 		{
 			this.Finish();
 		}
