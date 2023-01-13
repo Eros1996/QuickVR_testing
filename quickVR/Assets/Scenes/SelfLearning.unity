@@ -2579,6 +2579,8 @@ MonoBehaviour:
   _instructionsTimePause: 0.5
   quickStageLoop: {fileID: 1731983517}
   referenceAnimator: {fileID: 863372802}
+  animator: {fileID: 525735351}
+  id: 0
 --- !u!1 &470225014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,7 +2828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 525735351}
-  _showControlsBody: 1
+  _showControlsBody: 0
   _showControlsFingersLeftHand: 0
   _showControlsFingersRightHand: 0
   _showControlsFace: 0
@@ -8554,7 +8556,7 @@ MonoBehaviour:
   _instructionsVolume: 1
   _instructionsTimePause: 0.5
   quickStageLoop: {fileID: 1731983517}
-  animator: {fileID: 0}
+  animator: {fileID: 525735351}
 --- !u!4 &1211743120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400216, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}

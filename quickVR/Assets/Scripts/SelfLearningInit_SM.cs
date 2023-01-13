@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SelfLearningInit_SM : StateMachineBehaviour
 {
-	string name;
+	private string _clipName;
 
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -27,7 +27,7 @@ public class SelfLearningInit_SM : StateMachineBehaviour
 		unityVR.SetIKControl(IKBone.RightRingDistal, QuickUnityVR.ControlType.Animation);
 		unityVR.SetIKControl(IKBone.RightThumbDistal, QuickUnityVR.ControlType.Animation);
 
-		name = animator.GetNextAnimatorClipInfo(layerIndex)[0].clip.name;
+		_clipName = animator.GetNextAnimatorClipInfo(layerIndex)[0].clip.name;
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -39,7 +39,7 @@ public class SelfLearningInit_SM : StateMachineBehaviour
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
-		animator.SetBool(name, false);
+		animator.SetBool(_clipName, false);
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove()

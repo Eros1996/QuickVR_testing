@@ -15,13 +15,13 @@ public class QuickStagePerformTask : QuickStageBase
 
 	public QuickStageLoop quickStageLoop;
 	public Animator referenceAnimator;
+	public Animator animator;
 	public static bool startPerformance = false;
-	
+	public int id;
 	#endregion
 
 	#region PROTECTED ATTRIBUTES
 
-	protected Animator animator;
 	protected QuickUnityVR _unityVR = null;
 
 	#endregion
@@ -43,8 +43,8 @@ public class QuickStagePerformTask : QuickStageBase
 		animator = _vrManager.GetAnimatorTarget();
 		_unityVR = animator.GetComponent<QuickUnityVR>();
 
-		_performanceFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject0/performance" + quickStageLoop.GetCurrentInteration() + ".csv";
-		_refAnimationFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject0/refAnimation" + quickStageLoop.GetCurrentInteration() + ".csv";
+		_performanceFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject" + id + "/performance" + quickStageLoop.GetCurrentInteration() + ".csv";
+		_refAnimationFile = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject" + id + "/refAnimation" + quickStageLoop.GetCurrentInteration() + ".csv";
 
 		startPerformance = false;
 		headerWritten = false;
@@ -76,17 +76,20 @@ public class QuickStagePerformTask : QuickStageBase
 		{
 			if (!headerWritten)
 			{
-				getBoneHeader(animator.transform, fout);
-				getBoneHeader(referenceAnimator.transform, fout1);
-
+				//getBoneHeader(animator.transform, fout);
+				//getBoneHeader(referenceAnimator.transform, fout1);
+				getBoneHeaderAnimator(animator, fout);
+				getBoneHeaderAnimator(referenceAnimator, fout1);
 				headerWritten = true;
 			}
 
 			fout.WriteLine();
 			fout1.WriteLine();
 
-			getBonePosition(animator.transform, fout);
-			getBonePosition(referenceAnimator.transform, fout1);
+			//getBonePosition(animator.transform, fout);
+			//getBonePosition(referenceAnimator.transform, fout1);
+			getBonePositionAnimator(animator, fout);
+			getBonePositionAnimator(referenceAnimator, fout1);
 		}
 	}
 
@@ -105,7 +108,7 @@ public class QuickStagePerformTask : QuickStageBase
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
-			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh") || p.name.Contains("Body") || p.name.Contains("Hair"))
+			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh") && !p.name.Contains("Body") && !p.name.Contains("Hair"))
 				getBoneHeader(child, f);
 		}
 		
@@ -121,8 +124,33 @@ public class QuickStagePerformTask : QuickStageBase
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
-			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh") || p.name.Contains("Body") || p.name.Contains("Hair"))
+			if (!child.name.Contains("__") && !child.name.Contains("_IK") && !child.name.Contains("Mesh") && !p.name.Contains("Body") && !p.name.Contains("Hair"))
 				getBonePosition(child, f);
 		}
+	}
+
+	private void getBoneHeaderAnimator(Animator a, StreamWriter f)
+	{
+		for (int i = 0; i <= 23; i++)
+		{
+			f.Write(((HumanBodyBones)i).ToString() + "-posX, ");
+			f.Write(((HumanBodyBones)i).ToString() + "-posY, ");
+			f.Write(((HumanBodyBones)i).ToString() + "-posZ, ");
+
+			f.Write(((HumanBodyBones)i).ToString() + "-rotX, ");
+			f.Write(((HumanBodyBones)i).ToString() + "-rotY, ");
+			f.Write(((HumanBodyBones)i).ToString() + "-rotZ, ");
+		}
+	}
+
+	private void getBonePositionAnimator(Animator a, StreamWriter f)
+	{
+		for (int i = 0; i <= 23; i++)
+		{
+			var bodyBones = a.GetBoneTransform((HumanBodyBones)i);
+			f.Write(bodyBones.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+			f.Write(bodyBones.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+		}
+		
 	}
 }
