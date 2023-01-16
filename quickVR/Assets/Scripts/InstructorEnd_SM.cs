@@ -1,3 +1,4 @@
+using QuickVR;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,8 +22,10 @@ public class InstructorEnd_SM : StateMachineBehaviour
 	{
 		if (animator.GetInteger("TaichiCounter") < 4) return;
 
-		QuickStageLearnTask.animationEnd = true;
-		QuickStagePerformTask.startPerformance = false;
+		//QuickStageLearnTask.animationEnd = true;
+		//QuickStagePerformTask.startPerformance = false;
+		QuickStageLearning.animationEnd= true;
+		animator.SetInteger("TaichiCounter", 0);
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove()

@@ -9,7 +9,6 @@ using QuickVR;
 
 public class QuickStageEmbodiment : QuickStageBase
 {
-
 	//protected override IEnumerator CoUpdate()
 	//{
 	//	while (!InputManager.GetButtonDown(InputManager.DEFAULT_BUTTON_CONTINUE))

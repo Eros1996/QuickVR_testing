@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 
 public class QuickStageLearnTask : QuickStageBase
 {
-
 	#region PUBLIC ATTRIBUTES
 	public static bool animationEnd;
 	public QuickStageLoop quickStageLoop;
@@ -35,13 +34,6 @@ public class QuickStageLearnTask : QuickStageBase
 	public override void Init()
 	{
 		base.Init();
-
-		if (animator == null)
-		{
-			animator = _vrManager.GetAnimatorTarget();
-			_unityVR = animator.GetComponent<QuickUnityVR>();
-		}
-
 		animationEnd = false;
 	}
 
