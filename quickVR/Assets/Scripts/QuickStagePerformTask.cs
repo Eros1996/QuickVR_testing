@@ -76,20 +76,16 @@ public class QuickStagePerformTask : QuickStageBase
 		{
 			if (!headerWritten)
 			{
-				//getBoneHeader(animator.transform, fout);
-				//getBoneHeader(referenceAnimator.transform, fout1);
-				getBoneHeaderAnimator(animator, fout);
-				getBoneHeaderAnimator(referenceAnimator, fout1);
+				getBoneHeader(animator.transform, fout);
+				getBoneHeader(referenceAnimator.transform, fout1);
 				headerWritten = true;
 			}
 
 			fout.WriteLine();
 			fout1.WriteLine();
 
-			//getBonePosition(animator.transform, fout);
-			//getBonePosition(referenceAnimator.transform, fout1);
-			getBonePositionAnimator(animator, fout);
-			getBonePositionAnimator(referenceAnimator, fout1);
+			getBonePosition(animator.transform, fout);
+			getBonePosition(referenceAnimator.transform, fout1);
 		}
 	}
 
@@ -105,6 +101,8 @@ public class QuickStagePerformTask : QuickStageBase
 		f.Write(p.name + "-rotY, ");
 		f.Write(p.name + "-rotZ, ");
 
+		if (p.name.Contains("hand")) return; // Do not write fingers header
+
 		for (int i = 0; i < p.childCount; i++)
 		{
 			var child = p.GetChild(i);
@@ -119,7 +117,9 @@ public class QuickStagePerformTask : QuickStageBase
 		if (p.name.Contains("__") || p.name.Contains("_IK") || p.name.Contains("Mesh") || p.name.Contains("Body") || p.name.Contains("Hair")) return;
 
 		f.Write(p.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
-		f.Write(p.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+		f.Write(p.eulerAngles.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+
+		if (p.name.Contains("hand")) return; // Do not write fingers pos and rot
 
 		for (int i = 0; i < p.childCount; i++)
 		{
@@ -129,28 +129,28 @@ public class QuickStagePerformTask : QuickStageBase
 		}
 	}
 
-	private void getBoneHeaderAnimator(Animator a, StreamWriter f)
-	{
-		for (int i = 0; i <= 23; i++)
-		{
-			f.Write(((HumanBodyBones)i).ToString() + "-posX, ");
-			f.Write(((HumanBodyBones)i).ToString() + "-posY, ");
-			f.Write(((HumanBodyBones)i).ToString() + "-posZ, ");
+	//private void getBoneHeaderAnimator(Animator a, StreamWriter f)
+	//{
+	//	for (int i = 0; i <= 23; i++)
+	//	{
+	//		f.Write(((HumanBodyBones)i).ToString() + "-posX, ");
+	//		f.Write(((HumanBodyBones)i).ToString() + "-posY, ");
+	//		f.Write(((HumanBodyBones)i).ToString() + "-posZ, ");
 
-			f.Write(((HumanBodyBones)i).ToString() + "-rotX, ");
-			f.Write(((HumanBodyBones)i).ToString() + "-rotY, ");
-			f.Write(((HumanBodyBones)i).ToString() + "-rotZ, ");
-		}
-	}
+	//		f.Write(((HumanBodyBones)i).ToString() + "-rotX, ");
+	//		f.Write(((HumanBodyBones)i).ToString() + "-rotY, ");
+	//		f.Write(((HumanBodyBones)i).ToString() + "-rotZ, ");
+	//	}
+	//}
 
-	private void getBonePositionAnimator(Animator a, StreamWriter f)
-	{
-		for (int i = 0; i <= 23; i++)
-		{
-			var bodyBones = a.GetBoneTransform((HumanBodyBones)i);
-			f.Write(bodyBones.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
-			f.Write(bodyBones.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
-		}
+	//private void getBonePositionAnimator(Animator a, StreamWriter f)
+	//{
+	//	for (int i = 0; i <= 23; i++)
+	//	{
+	//		var bodyBones = a.GetBoneTransform((HumanBodyBones)i);
+	//		f.Write(bodyBones.position.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+	//		f.Write(bodyBones.rotation.ToString("F4").Replace("(", "").Replace(")", "") + ", ");
+	//	}
 		
-	}
+	//}
 }
