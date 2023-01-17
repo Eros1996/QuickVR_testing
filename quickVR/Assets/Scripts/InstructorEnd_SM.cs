@@ -22,8 +22,6 @@ public class InstructorEnd_SM : StateMachineBehaviour
 	{
 		if (animator.GetInteger("TaichiCounter") < 4) return;
 
-		//QuickStageLearnTask.animationEnd = true;
-		//QuickStagePerformTask.startPerformance = false;
 		QuickStageLearning.animationEnd= true;
 		animator.SetInteger("TaichiCounter", 0);
 	}

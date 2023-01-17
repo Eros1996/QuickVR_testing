@@ -19,6 +19,11 @@ public class QuickStageLearning : QuickStageBase
 	{
 		base.Update();
 
+		if (!GUI.gameObject.activeSelf)
+		{
+			ShowGUI(false);
+		}
+
 		if (animationEnd)
 		{
 			animationEnd = false;

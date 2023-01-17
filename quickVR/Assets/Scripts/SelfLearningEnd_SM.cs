@@ -22,8 +22,7 @@ public class SelfLearningEnd_SM : StateMachineBehaviour
 	{
 		if (animator.GetInteger("TaichiCounter") < 4) return;
 
-		QuickStageLearnTask.animationEnd = true;
-		QuickStagePerformTask.startPerformance = false;
+		QuickStageLearning.animationEnd = true;
 
 		var unityVR = animator.GetComponent<QuickUnityVR>();
 		unityVR.SetIKControl(IKBone.Hips, QuickUnityVR.ControlType.Tracking);
