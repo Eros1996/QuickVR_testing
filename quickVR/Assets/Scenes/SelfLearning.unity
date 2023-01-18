@@ -1764,6 +1764,7 @@ MonoBehaviour:
   id: 0
   _animationPlayerSrc: {fileID: 525735353}
   _RecordAnimationStage: {fileID: 467310733}
+  _learningStage: {fileID: 1208459265}
   _loop: {fileID: 1731983517}
   _buttonLearnMovement: {fileID: 1630108215}
   _buttonPerformMovement: {fileID: 1261637608}

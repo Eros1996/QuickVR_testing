@@ -13,6 +13,7 @@ public class RecordAnimation : MonoBehaviour
 	public int id;
 	public QuickAnimationPlayer _animationPlayerSrc = null;
 	public QuickStageRecordAnimation _RecordAnimationStage = null;
+	public QuickStageLearning _learningStage = null;
 	public QuickStageLoop _loop = null;
 
 	[Header("Animation UI")]
@@ -30,6 +31,7 @@ public class RecordAnimation : MonoBehaviour
 	private void ButtonLearnMovement_Down()
 	{
 		learningAnimator.SetBool("tai_chi_01", true);
+		_learningStage.ShowGUI(false);
 		gameObject.SetActive(false);
 	}
 

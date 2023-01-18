@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// You can now try to replicate the movement.
+// Press the Record Performance button to record your movement.
+// Whenever you feel okey with your performance press the Stop Recording button.
+
 public class QuickStageRecordAnimation : QuickStageBase
 {
 	public RecordAnimation GUI;
@@ -26,10 +30,10 @@ public class QuickStageRecordAnimation : QuickStageBase
 	{
 		base.Update();
 
-		if (!GUI.gameObject.activeSelf) 
-		{
-			ShowGUI(false);
-		}
+		//if (!GUI.gameObject.activeSelf) 
+		//{
+		//	ShowGUI(false);
+		//}
 
 		if (_animationPlayerSrc.IsRecording()) 
 		{
