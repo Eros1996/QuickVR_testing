@@ -30,11 +30,6 @@ public class QuickStageRecordAnimation : QuickStageBase
 	{
 		base.Update();
 
-		//if (!GUI.gameObject.activeSelf) 
-		//{
-		//	ShowGUI(false);
-		//}
-
 		if (_animationPlayerSrc.IsRecording()) 
 		{
 			SaveToMatrix();		

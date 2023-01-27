@@ -10,7 +10,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class RecordAnimation : MonoBehaviour
 {
-	public int id;
 	public QuickAnimationPlayer _animationPlayerSrc = null;
 	public QuickStageRecordAnimation _RecordAnimationStage = null;
 	public QuickStageLearning _learningStage = null;
@@ -30,9 +29,12 @@ public class RecordAnimation : MonoBehaviour
 
 	private void ButtonLearnMovement_Down()
 	{
-		learningAnimator.SetBool("tai_chi_01", true);
+		if(SceneManager.GetActiveScene().name == "SelfLearning")
+			_learningStage.StartAnimation();
+		else
+			learningAnimator.SetBool("tai_chi_01", true);
+
 		_learningStage.ShowGUI(false);
-		gameObject.SetActive(false);
 	}
 
 	private void ButtonPerformMovement_Down()
@@ -40,6 +42,7 @@ public class RecordAnimation : MonoBehaviour
 		if (_animationPlayerSrc.IsRecording())
 		{
 			_animationPlayerSrc.StopRecording();
+			UpdateStateButtonLearning();
 			string AnimationFileName;
 			if (SceneManager.GetActiveScene().name == "RecordReferenceAnimation")
 			{
@@ -47,13 +50,12 @@ public class RecordAnimation : MonoBehaviour
 			}
 			else
 			{
-				AnimationFileName = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/subject" + id + "/PerformanceAnimation" + _loop.GetCurrentInteration();
+				AnimationFileName = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/PerformanceAnimation" + _loop.GetCurrentInteration();
 			}
-
+			//AnimationFileName = Application.dataPath + @"/../Test/PerformanceAnimation" + _loop.GetCurrentInteration();
 			QuickAnimationUtils.SaveToAnim(AnimationFileName + ".anim", _animationPlayerSrc.GetRecordedAnimation());
 			SaveToFile(AnimationFileName);
 			_RecordAnimationStage.GoToNextStage();
-			Debug.Log("Recording Complete");
 		}
 		else
 		{
@@ -115,5 +117,18 @@ public class RecordAnimation : MonoBehaviour
 	protected virtual void UpdateStateButtonRecordStop()
 	{
 		_buttonPerformMovement.GetComponentInChildren<TextMeshProUGUI>().text = (_animationPlayerSrc.IsRecording()) ? "Stop Recording" : "Record Performance";
+	}
+
+	protected virtual void UpdateStateButtonLearning()
+	{
+		if (_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text == "Learn Movement 3")
+		{
+			_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = " ";
+		}
+		else
+		{
+			int num = _loop.GetCurrentInteration() + 2;
+			_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = "Learn Movement " + num;
+		}
 	}
 }
