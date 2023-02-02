@@ -52,7 +52,7 @@ public class RecordAnimation : MonoBehaviour
 			{
 				AnimationFileName = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/PerformanceAnimation" + _loop.GetCurrentInteration();
 			}
-			//AnimationFileName = Application.dataPath + @"/../Test/PerformanceAnimation" + _loop.GetCurrentInteration();
+			AnimationFileName = Application.dataPath + @"/../Test/PerformanceAnimation" + _loop.GetCurrentInteration();
 			QuickAnimationUtils.SaveToAnim(AnimationFileName + ".anim", _animationPlayerSrc.GetRecordedAnimation());
 			SaveToFile(AnimationFileName);
 			_RecordAnimationStage.GoToNextStage();
