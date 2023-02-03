@@ -942,7 +942,6 @@ MonoBehaviour:
   _instructionsAudioSource: {fileID: 0}
   _instructionsVolume: 1
   _instructionsTimePause: 0.5
-  user: {fileID: 1199639048}
   _loop: {fileID: 681043580}
   _buttonStartPerformance: {fileID: 852302052}
 --- !u!1 &250109589
@@ -6618,6 +6617,7 @@ MonoBehaviour:
   - {fileID: 704056715}
   - {fileID: 262732494}
   - {fileID: 1741926045}
+  _pfGUI: {fileID: 642126004220039574, guid: 01f15a5c0f49ba64cab24b8bc9781aa4, type: 3}
 --- !u!1 &1142224171
 GameObject:
   m_ObjectHideFlags: 0
@@ -8509,7 +8509,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: a9abb714a25342b44b0239bdc61e955d, type: 2}
     - target: {fileID: 9500000, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
       propertyPath: m_CullingMode
       value: 1
@@ -8523,11 +8523,6 @@ PrefabInstance:
 --- !u!1 &1199639047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100122, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
-  m_PrefabInstance: {fileID: 1199639046}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1199639048 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
   m_PrefabInstance: {fileID: 1199639046}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1199639049 stripped
@@ -9961,7 +9956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39695b9dba667a74d931d98210c83a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1199639048}
+  m_Animator: {fileID: 0}
   _showControlsBody: 1
   _showControlsFingersLeftHand: 0
   _showControlsFingersRightHand: 0
@@ -9971,7 +9966,6 @@ MonoBehaviour:
   _gestureSettingsLeftHand: {fileID: 0}
   _gestureSettingsRightHand: {fileID: 0}
   _useFootprints: 1
-  _isSitting: 0
   m_ApplyHeadRotation: 1
   m_ApplyHeadPosition: 1
   _rotateCameraMono: 1

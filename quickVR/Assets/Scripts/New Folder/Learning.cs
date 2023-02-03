@@ -19,6 +19,17 @@ public class Learning : QuickStageBase
 	{
 		base.Init();
 
+		if (_vrManager.GetAnimatorSource().gameObject.TryGetComponent(out AsynchMovement asynchMovement))
+		{
+			var targetAvatar = _vrManager.GetAnimatorTarget().gameObject;
+			var meshRenderers = targetAvatar.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+			foreach (var mesh in meshRenderers)
+			{
+				mesh.gameObject.SetActive(true);
+			}
+
+			asynchMovement.enabled = false;
+		}
 		embodimentCanvas.SetActive(false);
 		_buttonLearnMovement.OnDown += ButtonLearnMovement_Down;
 		learningCanvas.SetActive(true);

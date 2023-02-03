@@ -6898,6 +6898,7 @@ MonoBehaviour:
   - {fileID: 1580184058}
   - {fileID: 1143027602}
   - {fileID: 1244574753}
+  _pfGUI: {fileID: 642126004220039574, guid: 01f15a5c0f49ba64cab24b8bc9781aa4, type: 3}
 --- !u!1 &676887006
 GameObject:
   m_ObjectHideFlags: 0
@@ -7318,7 +7319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39695b9dba667a74d931d98210c83a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 278117663}
+  m_Animator: {fileID: 0}
   _showControlsBody: 1
   _showControlsFingersLeftHand: 0
   _showControlsFingersRightHand: 0
@@ -7328,7 +7329,6 @@ MonoBehaviour:
   _gestureSettingsLeftHand: {fileID: 0}
   _gestureSettingsRightHand: {fileID: 0}
   _useFootprints: 1
-  _isSitting: 0
   m_ApplyHeadRotation: 1
   m_ApplyHeadPosition: 1
   _rotateCameraMono: 1

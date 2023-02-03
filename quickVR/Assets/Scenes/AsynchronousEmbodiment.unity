@@ -2800,6 +2800,21 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &605042605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417396726}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04997d5b2a56f3b4cb3c5faa6c2839dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMaster: {fileID: 0}
+  _playerTarget: {fileID: 0}
+  _delay: 5
 --- !u!1 &631268795
 GameObject:
   m_ObjectHideFlags: 0
@@ -7242,8 +7257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39695b9dba667a74d931d98210c83a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1417396725}
-  _showControlsBody: 1
+  m_Animator: {fileID: 0}
+  _showControlsBody: 0
   _showControlsFingersLeftHand: 0
   _showControlsFingersRightHand: 0
   _showControlsFace: 0
@@ -7252,7 +7267,6 @@ MonoBehaviour:
   _gestureSettingsLeftHand: {fileID: 0}
   _gestureSettingsRightHand: {fileID: 0}
   _useFootprints: 1
-  _isSitting: 0
   m_ApplyHeadRotation: 1
   m_ApplyHeadPosition: 1
   _rotateCameraMono: 1
@@ -9728,7 +9742,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: a9abb714a25342b44b0239bdc61e955d, type: 2}
     - target: {fileID: 9500000, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
       propertyPath: m_CullingMode
       value: 1
@@ -11510,6 +11524,7 @@ MonoBehaviour:
   - {fileID: 540002446}
   - {fileID: 1809378145}
   - {fileID: 443773590}
+  _pfGUI: {fileID: 642126004220039574, guid: 01f15a5c0f49ba64cab24b8bc9781aa4, type: 3}
 --- !u!1 &1761870792
 GameObject:
   m_ObjectHideFlags: 0
@@ -12411,7 +12426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &2109169205
 CanvasGroup:
   m_ObjectHideFlags: 0
