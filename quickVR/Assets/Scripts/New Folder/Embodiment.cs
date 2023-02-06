@@ -27,6 +27,7 @@ public class Embodiment : QuickStageBase
 
 		if (_vrManager.GetAnimatorSource().gameObject.TryGetComponent(out AsynchMovement _asynchMovement))
 		{
+			Debug.Log("Asynch");
 			var targetAvatar = _vrManager.GetAnimatorTarget().gameObject;
 			var meshRenderers = targetAvatar.GetComponentsInChildren<SkinnedMeshRenderer>();
 			foreach (var mesh in meshRenderers)
@@ -34,9 +35,7 @@ public class Embodiment : QuickStageBase
 				mesh.gameObject.SetActive(false);
 			}
 
-			var AsynchPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer);
-			AsynchPlayer.transform.position = targetAvatar.transform.position;
-			AsynchPlayer.transform.rotation = targetAvatar.transform.rotation;
+			var AsynchPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer, targetAvatar.transform.position, targetAvatar.transform.rotation);
 			AsynchPlayer.AddComponent<QuickAnimationPlayer>();
 			
 			_asynchMovement._playerMaster = targetAvatar.AddComponent<QuickAnimationPlayer>();
@@ -57,7 +56,6 @@ public class Embodiment : QuickStageBase
 			exerciseInstruction[_currentExerciseIndex].SetActive(false);
 			_currentExerciseIndex++;
 			exerciseInstruction[_currentExerciseIndex].SetActive(true);
-
 		}
 	}
 

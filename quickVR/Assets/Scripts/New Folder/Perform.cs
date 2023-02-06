@@ -8,17 +8,22 @@ using Valve.VR.InteractionSystem;
 
 public class Perform : QuickStageBase
 {
-	public QuickStageLoop _loop = null;
 	public QuickUIButton _buttonStartPerformance = null;
 	public static bool animationEnd;
 
-	private GameObject goPlayer;
+	private GameObject animatedPlayer;
+	private GameObject targetAvatar;
+	private GameObject sourceAvatar;
 
 	public override void Init()
 	{
 		base.Init();
 
 		_buttonStartPerformance.OnDown += ButtonStartPerformance_Down;
+		targetAvatar = _vrManager.GetAnimatorTarget().gameObject;
+		sourceAvatar = _vrManager.GetAnimatorSource().gameObject;
+		animationEnd = false;
+		animatedPlayer = null;
 		ShowGUI(true);
 	}
 
@@ -30,14 +35,6 @@ public class Perform : QuickStageBase
 		{
 			EndAnimation();
 			animationEnd = false;
-			this.Finish();
-		}
-
-		if (InputManager.GetButtonDown(InputManager.DEFAULT_BUTTON_CONTINUE))
-		{
-			EndAnimation();
-			animationEnd = false; 
-			goPlayer.GetComponent<Animator>().StopPlayback();
 			this.Finish();
 		}
 	}
@@ -56,8 +53,7 @@ public class Perform : QuickStageBase
 
 	public void StartAnimation()
 	{
-		var targetAvatar = _vrManager.GetAnimatorTarget().gameObject;
-		var animatorController = _vrManager.GetAnimatorSource().runtimeAnimatorController;
+		var animatorController = sourceAvatar.GetComponent<Animator>().runtimeAnimatorController;
 
 		var meshRenderers = targetAvatar.GetComponentsInChildren<SkinnedMeshRenderer>();
 		foreach (var mesh in meshRenderers)
@@ -65,13 +61,13 @@ public class Perform : QuickStageBase
 			mesh.gameObject.SetActive(false);
 		}
 
-		goPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer);
-		goPlayer.transform.position = targetAvatar.transform.position;
-		goPlayer.transform.rotation = targetAvatar.transform.rotation;
+		if (animatedPlayer == null)
+		{
+			animatedPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer, targetAvatar.transform.position, targetAvatar.transform.rotation);
+		}
 
-		var anim = goPlayer.GetComponent<Animator>();
+		var anim = animatedPlayer.GetComponent<Animator>();
 		anim.runtimeAnimatorController = animatorController;
-		anim.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
 		anim.applyRootMotion = false;
 		anim.SetBool("tai_chi_01", true);
 	}
@@ -85,6 +81,8 @@ public class Perform : QuickStageBase
 			mesh.gameObject.SetActive(true);
 		}
 
-		Destroy(goPlayer);
+		DestroyImmediate(animatedPlayer);
+		animatedPlayer = null;
+
 	}
 }

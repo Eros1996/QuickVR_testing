@@ -22,6 +22,6 @@ public class AsynchMovement : MonoBehaviour
 	private void OnDisable()
 	{
 		Destroy(_playerMaster);
-		Destroy(_playerTarget.gameObject);
+		DestroyImmediate(_playerTarget.gameObject);
 	}
 }

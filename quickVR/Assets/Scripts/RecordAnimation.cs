@@ -43,16 +43,18 @@ public class RecordAnimation : MonoBehaviour
 		{
 			_animationPlayerSrc.StopRecording();
 			UpdateStateButtonLearning();
-			string AnimationFileName;
+			string AnimationFileName = Application.dataPath + @"/../Test/PerformanceAnimation" + _loop.GetCurrentInteration();
+			
+			#if UNITY_EDITOR
 			if (SceneManager.GetActiveScene().name == "RecordReferenceAnimation")
 			{
 				AnimationFileName = Application.dataPath + @"/../../../OutputData/ReferenceAnimation";
 			}
 			else
 			{
-				AnimationFileName = Application.dataPath + @"/../../../OutputData/" + SceneManager.GetActiveScene().name + "/PerformanceAnimation" + _loop.GetCurrentInteration();
+				AnimationFileName = Application.dataPath + @"/../../../OutputData/PerformanceAnimation" + _loop.GetCurrentInteration();
 			}
-			AnimationFileName = Application.dataPath + @"/../Test/PerformanceAnimation" + _loop.GetCurrentInteration();
+			#endif
 			QuickAnimationUtils.SaveToAnim(AnimationFileName + ".anim", _animationPlayerSrc.GetRecordedAnimation());
 			SaveToFile(AnimationFileName);
 			_RecordAnimationStage.GoToNextStage();

@@ -8162,9 +8162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationPlayerSrc: {fileID: 754984493}
-  _RecordAnimationStage: {fileID: 0}
-  _learningStage: {fileID: 0}
-  _loop: {fileID: 0}
+  _RecordAnimationStage: {fileID: 229145849}
+  _learningStage: {fileID: 846571156}
+  _loop: {fileID: 1513931945}
   _buttonLearnMovement: {fileID: 1677794719}
   _buttonPerformMovement: {fileID: 876705732}
   learningAnimator: {fileID: 332557467}

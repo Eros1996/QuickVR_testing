@@ -30,9 +30,11 @@ public class Learning : QuickStageBase
 
 			asynchMovement.enabled = false;
 		}
-		embodimentCanvas.SetActive(false);
+
 		_buttonLearnMovement.OnDown += ButtonLearnMovement_Down;
+		embodimentCanvas.SetActive(false);
 		learningCanvas.SetActive(true);
+		animationEnd = false;
 		ShowGUI(true);
 	}
 
@@ -43,6 +45,7 @@ public class Learning : QuickStageBase
 		if (animationEnd) 
 		{ 
 			ShowGUI(false);
+			animationEnd = false;
 			this.Finish();
 		}
 	}
@@ -50,7 +53,6 @@ public class Learning : QuickStageBase
 	private void ButtonLearnMovement_Down()
 	{
 		Instructor.SetBool("tai_chi_01", true);
-		animationEnd = false;
 		ShowGUI(false);
 		UpdateStateButtonLearning();
 	}
@@ -63,14 +65,7 @@ public class Learning : QuickStageBase
 
 	private void UpdateStateButtonLearning()
 	{
-		if (_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text == "Learn Movement 3")
-		{
-			_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = " ";
-		}
-		else
-		{
-			int num = _loop.GetCurrentInteration() + 2;
-			_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = "Learn Movement " + num;
-		}
+		int num = _loop.GetCurrentInteration() + 2;
+		_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = "Learn Movement " + num;
 	}
 }
