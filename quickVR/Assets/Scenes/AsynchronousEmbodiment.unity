@@ -1017,6 +1017,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7823293702887809713, guid: 3d1afc65711556246a0ba5b265f4ac4e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6452266432751415832, guid: 3d1afc65711556246a0ba5b265f4ac4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3d1afc65711556246a0ba5b265f4ac4e, type: 3}
       propertyPath: m_Name
       value: FemaleAsian00_Mobile
@@ -2045,7 +2053,8 @@ MonoBehaviour:
   _pressKeyToFinish: 0
   _avoidable: 1
   _instructionsSpanish: []
-  _instructionsEnglish: []
+  _instructionsEnglish:
+  - {fileID: 8300000, guid: 373f747d65ca37842bf41f98518df263, type: 3}
   _instructionsAudioSource: {fileID: 0}
   _instructionsVolume: 1
   _instructionsTimePause: 0.5
@@ -2153,6 +2162,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9fe99bfc414c6a848adf8e33907b02ff, type: 3}
       propertyPath: m_Name
       value: MaleWhite00_Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9fe99bfc414c6a848adf8e33907b02ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fe99bfc414c6a848adf8e33907b02ff, type: 3}
@@ -2544,6 +2557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaleAsian00_Mobile
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4111598c702c15640afd768a02fd68d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4111598c702c15640afd768a02fd68d4, type: 3}
 --- !u!4 &540002445 stripped
@@ -2812,7 +2829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMaster: {fileID: 0}
   _playerTarget: {fileID: 0}
-  _delay: 5
+  _delay: 2.5
 --- !u!1 &631268795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FemaleBlack00_Mobile
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1da474cc868ff2b449d5b1bda25d02f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da474cc868ff2b449d5b1bda25d02f5, type: 3}
 --- !u!4 &652248602 stripped
@@ -3136,6 +3157,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 57d02a60387a7134294a71dff69e4e26, type: 3}
       propertyPath: m_Name
       value: FemaleWhite00_Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57d02a60387a7134294a71dff69e4e26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d02a60387a7134294a71dff69e4e26, type: 3}
@@ -7956,7 +7981,8 @@ MonoBehaviour:
   _pressKeyToFinish: 0
   _avoidable: 1
   _instructionsSpanish: []
-  _instructionsEnglish: []
+  _instructionsEnglish:
+  - {fileID: 8300000, guid: a1209db91e5da59479705da9452b05be, type: 3}
   _instructionsAudioSource: {fileID: 0}
   _instructionsVolume: 1
   _instructionsTimePause: 0.5
@@ -10637,7 +10663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &1546296351
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11078,11 +11104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf4c04905bcdec42937808bda69a8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTimeOut: 10
+  _maxTimeOut: 180
   _pressKeyToFinish: 0
   _avoidable: 1
   _instructionsSpanish: []
-  _instructionsEnglish: []
+  _instructionsEnglish:
+  - {fileID: 8300000, guid: cf4c511663a20fc42b42e0fa45c4fd84, type: 3}
   _instructionsAudioSource: {fileID: 0}
   _instructionsVolume: 1
   _instructionsTimePause: 0.5
@@ -11603,6 +11630,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f45021dec71cca4a997e6c4e5bcb802, type: 3}
       propertyPath: m_Name
       value: MaleBlack00_Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f45021dec71cca4a997e6c4e5bcb802, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f45021dec71cca4a997e6c4e5bcb802, type: 3}

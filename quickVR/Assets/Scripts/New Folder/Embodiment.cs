@@ -37,8 +37,12 @@ public class Embodiment : QuickStageBase
 
 			var AsynchPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer, targetAvatar.transform.position, targetAvatar.transform.rotation);
 			AsynchPlayer.AddComponent<QuickAnimationPlayer>();
-			
-			_asynchMovement._playerMaster = targetAvatar.AddComponent<QuickAnimationPlayer>();
+
+			targetAvatar.TryGetComponent(out QuickAnimationPlayer targetAnimationPlayer);
+			if(targetAnimationPlayer == null)
+				targetAnimationPlayer = targetAvatar.AddComponent<QuickAnimationPlayer>();
+
+			_asynchMovement._playerMaster = targetAnimationPlayer;
 			_asynchMovement._playerTarget = AsynchPlayer.GetComponent<QuickAnimationPlayer>();
 			_asynchMovement.enabled = true;
 		}

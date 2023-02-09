@@ -9,10 +9,15 @@ public class AsynchMovement : MonoBehaviour
 	public QuickAnimationPlayer _playerTarget = null;
 
 	public float _delay = 5.0f;
-
+	private bool isStarting = true;
 	public virtual IEnumerator Start()
 	{
 		_playerMaster.Record();
+		if (isStarting) 
+		{
+			_playerTarget.Play(_playerMaster.GetRecordedAnimation());
+			isStarting = false;
+		}
 
 		yield return new WaitForSeconds(_delay);
 
@@ -21,7 +26,7 @@ public class AsynchMovement : MonoBehaviour
 
 	private void OnDisable()
 	{
-		Destroy(_playerMaster);
+		//Destroy(_playerMaster);
 		DestroyImmediate(_playerTarget.gameObject);
 	}
 }

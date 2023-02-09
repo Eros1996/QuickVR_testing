@@ -1,4 +1,3 @@
-using Mono.Reflection;
 using QuickVR;
 using System;
 using System.Collections;
@@ -14,6 +13,7 @@ public class Perform : QuickStageBase
 	private GameObject animatedPlayer;
 	private GameObject targetAvatar;
 	private GameObject sourceAvatar;
+	private Vector3 offset = new Vector3(0,0,0.1f);
 
 	public override void Init()
 	{
@@ -63,7 +63,7 @@ public class Perform : QuickStageBase
 
 		if (animatedPlayer == null)
 		{
-			animatedPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer, targetAvatar.transform.position, targetAvatar.transform.rotation);
+			animatedPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer, targetAvatar.transform.position - offset, targetAvatar.transform.rotation);
 		}
 
 		var anim = animatedPlayer.GetComponent<Animator>();

@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SynchronousEmbodiment.unity
+    guid: 703008c513fdd524eb1485f4ab661736
+  - enabled: 0
+    path: Assets/Scenes/AsynchronousEmbodiment.unity
+    guid: 198bfc0d74396624590af96644a11c9b
   - enabled: 1
-    path: Assets/Scenes/old/Instructor.unity
-    guid: 89e643cb648265c47929d509a3ccf534
-  - enabled: 0
-    path: Assets/Scenes/old/SelfLearning.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/Measurement.unity
+    guid: dc04183cba8081e4ebc0669dad20ce5a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c305f7ab6f1e1094186358fd8279b95a, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: b4164db300dd05d4d8af55e389116848, type: 2}
