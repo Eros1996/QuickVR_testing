@@ -2560,7 +2560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf4c04905bcdec42937808bda69a8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTimeOut: 10
+  _maxTimeOut: 180
   _pressKeyToFinish: 0
   _avoidable: 1
   _instructionsSpanish: []
@@ -5432,7 +5432,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.1018, y: 1.361}
-  m_SizeDelta: {x: 295.4627, y: 50}
+  m_SizeDelta: {x: 306.1, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882493040
 MonoBehaviour:
@@ -5481,8 +5481,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8510,7 +8510,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a9abb714a25342b44b0239bdc61e955d, type: 2}
+      objectReference: {fileID: 9100000, guid: 84f7b3ec073a2824ba2b40eb9d8b9672, type: 2}
     - target: {fileID: 9500000, guid: 317a56890b5c8e74ab1d492a2c7fb608, type: 3}
       propertyPath: m_CullingMode
       value: 1
