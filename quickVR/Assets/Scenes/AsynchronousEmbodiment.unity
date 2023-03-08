@@ -3968,10 +3968,10 @@ MonoBehaviour:
   m_LeftHandTurnAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Left Hand Turn
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 61818aa7-7b26-43e4-a9b1-520c4fb8e356
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -4022,10 +4022,10 @@ MonoBehaviour:
   m_RightHandMoveAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Right Hand Move
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 107d714c-51c2-4fa1-aadb-9ad4d5458b79
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -7328,7 +7328,6 @@ MonoBehaviour:
   _playLoop: 0
   _playMode: 0
   _recordFPS: 30
-  _weight: 1
 --- !u!1 &1276590535
 GameObject:
   m_ObjectHideFlags: 0

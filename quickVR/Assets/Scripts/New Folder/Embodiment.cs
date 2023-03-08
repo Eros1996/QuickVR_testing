@@ -66,6 +66,8 @@ public class Embodiment : QuickStageBase
 	public void ShowGUI(bool show)
 	{
 		embodimentCanvas.SetActive(show);
-		_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		//_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		_interactionManager._interactorHandRight.SetInteractorEnabled(InteractorType.UI, show);
+
 	}
 }

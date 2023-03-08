@@ -48,7 +48,8 @@ public class Perform : QuickStageBase
 	public void ShowGUI(bool show)
 	{
 		_buttonStartPerformance.gameObject.SetActive(show);
-		_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		//_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		_interactionManager._interactorHandRight.SetInteractorEnabled(InteractorType.UI, show);
 	}
 
 	public void StartAnimation()

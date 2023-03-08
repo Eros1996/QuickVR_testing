@@ -60,7 +60,9 @@ public class Learning : QuickStageBase
 	private void ShowGUI(bool show)
 	{
 		_buttonLearnMovement.gameObject.SetActive(show);
-		_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		//_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		_interactionManager._interactorHandRight.SetInteractorEnabled(InteractorType.UI, show);
+
 	}
 
 	private void UpdateStateButtonLearning()

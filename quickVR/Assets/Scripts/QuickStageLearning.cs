@@ -35,7 +35,9 @@ public class QuickStageLearning : QuickStageBase
 	public void ShowGUI(bool show) 
 	{
 		GUI.gameObject.SetActive(show);
-		_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		//_interactionManager.GetVRInteractorHandRight().SetInteractorEnabled(InteractorType.UI, show);
+		_interactionManager._interactorHandRight.SetInteractorEnabled(InteractorType.UI, show);
+
 	}
 
 	public void StartAnimation() 
