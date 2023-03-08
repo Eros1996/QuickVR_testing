@@ -5425,7 +5425,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: f429aa1828d86f44389ecd67e3c13954, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a9abb714a25342b44b0239bdc61e955d, type: 2}
+      objectReference: {fileID: 9100000, guid: 84f7b3ec073a2824ba2b40eb9d8b9672, type: 2}
     - target: {fileID: 9500000, guid: f429aa1828d86f44389ecd67e3c13954, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
@@ -7294,7 +7294,6 @@ MonoBehaviour:
   _playLoop: 0
   _playMode: 0
   _recordFPS: 30
-  _weight: 1
 --- !u!114 &754984494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10744,7 +10743,7 @@ MonoBehaviour:
   _instructionsAudioSource: {fileID: 0}
   _instructionsVolume: 1
   _instructionsTimePause: 0.5
-  _numIterations: 3
+  _numIterations: 5
 --- !u!1 &1537695870
 GameObject:
   m_ObjectHideFlags: 0

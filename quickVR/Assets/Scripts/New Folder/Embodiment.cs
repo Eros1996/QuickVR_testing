@@ -9,7 +9,8 @@ public class Embodiment : QuickStageBase
 {
 	public GameObject embodimentCanvas;
     public List<GameObject> exerciseInstruction;
-	
+	public Vector3 moveBack = new Vector3 (0, 0, 0);
+
     private float _timeToChangeExercise;
 	private float _currentTime;
 	private int _currentExerciseIndex;
@@ -28,6 +29,10 @@ public class Embodiment : QuickStageBase
 		if (_vrManager.GetAnimatorSource().gameObject.TryGetComponent(out AsynchMovement _asynchMovement))
 		{
 			Debug.Log("Asynch");
+			//var targetAvatar = _vrManager.GetAnimatorTarget().gameObject;
+			//var targetAvatar_ER = targetAvatar.AddComponent<QuickEnableRenderers>();
+			//targetAvatar_ER._visible = false;
+
 			var targetAvatar = _vrManager.GetAnimatorTarget().gameObject;
 			var meshRenderers = targetAvatar.GetComponentsInChildren<SkinnedMeshRenderer>();
 			foreach (var mesh in meshRenderers)
@@ -35,11 +40,13 @@ public class Embodiment : QuickStageBase
 				mesh.gameObject.SetActive(false);
 			}
 
-			var AsynchPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer, targetAvatar.transform.position, targetAvatar.transform.rotation);
+			var AsynchPlayer = Instantiate(QuickStageChoosePlayer._selectedPlayer, targetAvatar.transform.position + moveBack, targetAvatar.transform.rotation);
 			AsynchPlayer.AddComponent<QuickAnimationPlayer>();
+			//var asynchPlayer_ER = AsynchPlayer.AddComponent<QuickEnableRenderers>();
+			//asynchPlayer_ER._visible = true;
 
 			targetAvatar.TryGetComponent(out QuickAnimationPlayer targetAnimationPlayer);
-			if(targetAnimationPlayer == null)
+			if (targetAnimationPlayer == null)
 				targetAnimationPlayer = targetAvatar.AddComponent<QuickAnimationPlayer>();
 
 			_asynchMovement._playerMaster = targetAnimationPlayer;
