@@ -28,7 +28,7 @@ public class Embodiment : QuickStageBase
 
 		if (_vrManager.GetAnimatorSource().gameObject.TryGetComponent(out AsynchMovement _asynchMovement))
 		{
-			Debug.Log("Asynch");
+			//Debug.Log("Asynch");
 			//var targetAvatar = _vrManager.GetAnimatorTarget().gameObject;
 			//var targetAvatar_ER = targetAvatar.AddComponent<QuickEnableRenderers>();
 			//targetAvatar_ER._visible = false;

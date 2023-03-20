@@ -12,7 +12,9 @@ public class QuickStageRecordAnimation : QuickStageBase
 	public RecordAnimation GUI;
 	public QuickAnimationPlayer _animationPlayerSrc = null;
 	public Animator animator;
-	protected List<float[]> pos_rot_performance = new List<float[]>();
+    public QuickUIButton _buttonPerformMovement = null;
+
+    protected List<float[]> pos_rot_performance = new List<float[]>();
 	private int col = 0;
 
 	public virtual List<float[]> GetM1()
@@ -24,9 +26,10 @@ public class QuickStageRecordAnimation : QuickStageBase
 	{
 		base.Init();
 		ShowGUI(true);
-	}
+        _buttonPerformMovement.enabled = true;
+    }
 
-	protected override void Update()
+    protected override void Update()
 	{
 		base.Update();
 
@@ -38,7 +41,8 @@ public class QuickStageRecordAnimation : QuickStageBase
 
 	public void GoToNextStage()
 	{
-		this.Finish();
+        _buttonPerformMovement.enabled = false;
+        this.Finish();
 	}
 
 	public void SaveToMatrix() 

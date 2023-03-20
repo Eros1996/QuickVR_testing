@@ -123,14 +123,21 @@ public class RecordAnimation : MonoBehaviour
 
 	protected virtual void UpdateStateButtonLearning()
 	{
-		if (_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text == "Learn Movement 3")
-		{
-			_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = " ";
-		}
-		else
-		{
-			int num = _loop.GetCurrentInteration() + 2;
-			_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = "Learn Movement " + num;
-		}
-	}
+        _buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = "Learn Movement " + _loop.GetCurrentInteration() + 2;
+
+        if (_loop.GetCurrentInteration()+2 > 5)
+        {
+        	_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = " ";
+        }
+
+        //if (_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text == "Learn Movement 3")
+        //{
+        //	_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = " ";
+        //}
+        //else
+        //{
+        //	int num = _loop.GetCurrentInteration() + 2;
+        //	_buttonLearnMovement.GetComponentInChildren<TextMeshProUGUI>().text = "Learn Movement " + _loop.GetCurrentInteration()+1;
+        //}
+    }
 }

@@ -10,14 +10,16 @@ public class QuickStageLearning : QuickStageBase
 {
 	public static bool animationEnd;
 	public RecordAnimation GUI;
+    public QuickUIButton _buttonLearnMovement;
 
-	private GameObject goPlayer;
+    private GameObject goPlayer;
 
 	public override void Init()
 	{
 		base.Init();
 		animationEnd = false;
 		ShowGUI(true);
+		_buttonLearnMovement.enabled = true;
 	}
 
 	protected override void Update()
@@ -28,7 +30,8 @@ public class QuickStageLearning : QuickStageBase
 		{
 			EndAnimation();
 			animationEnd = false;
-			this.Finish();
+            _buttonLearnMovement.enabled = false;
+            this.Finish();
 		}
 	}
 
